@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.authors       = ["eugen neagoe"]
   s.description   = "A Refinery CMS and activeadmin connector"
   s.summary       = "This will tell Refinery CMS to use ActiveAdmin for authentication."
-  s.homepage      = ""
+  s.homepage      = "https://github.com/appmospheres/activeadmin-refinery-authentication"
 
   s.files         = `git ls-files`.split($/)
   s.test_files    = s.files.grep(%r{^spec/})
