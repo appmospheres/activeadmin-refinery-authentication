@@ -1,0 +1,19 @@
+<div class='field plugin_access'>
+  <ul id='plugins' class='checkboxes'>
+    <%% <%= @user_class %>.available_plugins.each do |plugin| -%>
+      <%% if Refinery::Plugins.always_allowed.names.include?(plugin[:name]) %>
+         <%%= hidden_field_tag '<%= @formatted_user_name %>[plugins][]', plugin[:name], :id => "plugins_#{plugin[:name]}" %>
+       <%% else %>
+         <li>
+           <%%= check_box_tag '<%= @formatted_user_name %>[plugins][]', plugin[:name],
+             @<%= @formatted_user_name %>.plugins.map(&:name).include?(plugin[:name]),
+             :id => "plugins_#{plugin[:name]}" %>
+           <%%= f.label '<%= @formatted_user_name %>[plugins][]',
+             t('title', :scope => "refinery.plugins.#{plugin[:name].downcase}", :default => plugin[:title]),
+             :class => "stripped",
+             :for => "plugins_#{plugin[:name]}" %>
+       </li>
+     <%% end %>
+   <%% end %>
+  </ul>
+</div>

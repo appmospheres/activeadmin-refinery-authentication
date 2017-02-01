@@ -1,0 +1,8 @@
+Rails.application.config.x.aa_refinery.show_refinery_in_active_admin = true
+Rails.application.config.x.aa_refinery.refinery_active_admin_menu_priority = 1
+
+Rails.application.config.x.aa_refinery.current_user_method = :current_<%= @formatted_user_name %>
+Rails.application.config.x.aa_refinery.admin_login_path = :new_<%= @formatted_user_name %>_session_path
+Rails.application.config.x.aa_refinery.admin_user_class = '<%= @user_class %>'
+Rails.application.config.x.aa_refinery.refinery_role_method = :admin?
+

@@ -1,0 +1,1 @@
+require "activeadmin_refinery_authentication/engine"
