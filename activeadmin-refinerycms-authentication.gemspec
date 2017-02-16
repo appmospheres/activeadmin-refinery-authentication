@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name          = "activeadmin-refinerycms-authentication"
-  s.version       = "0.0.2"
+  s.version       = "0.0.3"
   s.authors       = ["eugen neagoe"]
   s.description   = "A Refinery CMS and activeadmin connector"
   s.summary       = "This will tell Refinery CMS to use ActiveAdmin for authentication."

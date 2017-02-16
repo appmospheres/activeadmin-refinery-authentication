@@ -23,7 +23,7 @@ unless Rails.application.config.x.aa_refinery.empty?
 
     def plugins=(plugin_names)
       filtered_names = filter_existing_plugins_for(string_plugin_names(plugin_names))
-      create_plugins_for(filtered_names)
+      build_or_create_plugins_for(filtered_names)
     end
 
     def active_plugins
@@ -53,8 +53,12 @@ unless Rails.application.config.x.aa_refinery.empty?
       plugin_names.select{ |plugin_name| plugin_name.is_a?(String) }
     end
 
-    def create_plugins_for(plugin_names)
-      plugin_names.each { |plugin_name| plugins.create name: plugin_name, position: plugin_position}
+    def build_or_create_plugins_for(plugin_names)
+      if persisted?
+        plugin_names.each { |plugin_name| plugins.create name: plugin_name, position: plugin_position}
+      else
+        plugin_names.each { |plugin_name| plugins.build name: plugin_name, position: plugin_position}
+      end
     end
 
     def plugin_position
