@@ -1,5 +1,5 @@
 Devise::SessionsController.class_eval do
-  skip_before_action :detect_activeadmin_sign_on!, only: [:create]
+  skip_before_action :detect_activeadmin_sign_on!, only: [:create], raise: false
   after_action :detect_activeadmin_sign_on!, only: [:create]
 
   private
